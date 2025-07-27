@@ -1,13 +1,18 @@
 from flask import Flask, render_template
 from SCRIPT_disk_space import disk_space
 
+
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello():
-    return render_template("index.html", df=disk_space('/'))
+    labels = ['Used', 'Available']
+    data = []
+    for i in disk_space('/'):
+        data.append(i)
 
+    return render_template("index.html", labels=labels, data=data)
 
 @app.route("/df")
 def disk_files():
@@ -15,4 +20,9 @@ def disk_files():
 
 @app.route("/test")
 def test_page():
-    return "test"
+    labels = ['Used', 'Available']
+    data = []
+    for i in disk_space('/'):
+        data.append(i)
+    
+    return render_template('test.html', labels=labels, data=data)

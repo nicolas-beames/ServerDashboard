@@ -1,22 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <title>test</title>
+    <title>Chart.js Example</title>
 </head>
 <body>
-    <h1>Nicolas' Server Dashboard!</h1>
-    <a href="/test">test page</a>
-
-    <br>
-
-    <div style="height: 25vh; width: 25%;">
-        <canvas id="space"></canvas>
+    <div style="height: 50vh; width: 50%;">
+        <canvas id="myChart"></canvas>
     </div>
 
-</body>
     <script>
         const labels = JSON.parse('{{ labels | tojson | safe }}');
         const chartData = JSON.parse('{{ data | tojson | safe }}');
@@ -26,7 +18,7 @@
             datasets: [{
                 label: 'Available Space',
                 backgroundColor: ['rgb(255, 0, 0)', 'rgb(168, 168, 168)'],
-                borderColor: 'rgb(255, 255, 255)',
+                borderColor: 'rgb(255, 99, 132)',
                 data: chartData,
             }]
         };
@@ -38,8 +30,9 @@
         };
 
         const myChart = new Chart(
-            document.getElementById('space'),
+            document.getElementById('myChart'),
             config
         );
     </script>
+</body>
 </html>
