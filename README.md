@@ -9,3 +9,9 @@ information on to it
 The website is hosted on my server with the intent
 to be used by myself and family to aid in day to 
 day tasks and smart home integration
+
+Features: 
+    -Disk Space available graph
+
+WIP:
+    -File upload for Plex
